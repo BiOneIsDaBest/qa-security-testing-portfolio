@@ -1,4 +1,4 @@
-# QA Testing Portfolio
+# QA Security Testing Portfolio
 
 This portfolio demonstrates my practical learning in manual testing, automation testing, API testing, and basic web security testing.
 
