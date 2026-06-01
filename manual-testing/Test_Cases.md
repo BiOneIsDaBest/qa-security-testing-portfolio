@@ -81,3 +81,80 @@ The SauceDemo login module correctly handled valid login, invalid credentials, e
 - Recorded test execution status as Pass, Fail, Blocked, or Not Run.
 - Added screenshot evidence for manual testing.
 - Improved understanding of login validation and authentication-related test scenarios.
+
+---
+
+# Product, Cart, and Checkout Test Cases
+
+## Test Objective
+
+The objective of this test set is to verify the main e-commerce user flow in SauceDemo, including product browsing, cart management, checkout form validation, and order completion.
+
+These test cases demonstrate end-to-end manual testing skills by covering both positive and negative scenarios.
+
+---
+
+## Product Test Cases
+
+| Test Case ID | Test Scenario | Preconditions | Test Steps | Test Data | Expected Result | Actual Result | Status | Evidence |
+|---|---|---|---|---|---|---|---|---|
+| TC-PROD-001 | Verify Products page is displayed after valid login | User has valid login credentials | 1. Open SauceDemo 2. Login with valid credentials | Username: standard_user Password: secret_sauce | User should be redirected to the Products page | Actual Result: User was redirected to the Products page successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-prod-001-products-page.png |
+| TC-PROD-002 | Verify product list is visible | User is on the Products page | 1. Observe the product list | N/A | Product names, images, prices, and Add to Cart buttons should be visible | Product names, images, prices, and Add to Cart buttons were displayed correctly. | Pass | manual-testing/screenshots/cart-checkout/tc-prod-002-product-list.png |
+| TC-PROD-003 | Verify product details page opens correctly | User is on the Products page | 1. Click a product name | Product: Sauce Labs Backpack | Product details page should be displayed with product name, image, description, price, and Add to Cart button | Product details page was displayed with product name, description, price, image, and Add to Cart button. | Pass | manual-testing/screenshots/cart-checkout/tc-prod-003-product-details.png |
+
+---
+
+## Cart Test Cases
+
+| Test Case ID | Test Scenario | Preconditions | Test Steps | Test Data | Expected Result | Actual Result | Status | Evidence |
+|---|---|---|---|---|---|---|---|---|
+| TC-CART-001 | Verify adding one product to cart | User is logged in and on the Products page | 1. Click Add to Cart for one product | Product: Sauce Labs Backpack | Cart badge should display 1 | Product was added to cart and cart badge displayed 1. | Pass | manual-testing/screenshots/cart-checkout/tc-cart-001-add-one-product.png |
+| TC-CART-002 | Verify adding multiple products to cart | User is logged in and on the Products page | 1. Add two products to cart | Products: Sauce Labs Backpack, Sauce Labs Bike Light | Cart badge should display 2 | Two products were added to cart and cart badge displayed 2. | Pass | manual-testing/screenshots/cart-checkout/tc-cart-002-add-multiple-products.png |
+| TC-CART-003 | Verify Remove button appears after adding product | User is logged in and on the Products page | 1. Click Add to Cart for a product 2. Observe the button text | Product: Sauce Labs Backpack | Add to Cart button should change to Remove | Add to Cart button changed to Remove after the product was added. | Pass | manual-testing/screenshots/cart-checkout/tc-cart-003-remove-button-visible.png |
+| TC-CART-004 | Verify removing product from Products page | Product has been added to cart | 1. Click Remove button on the Products page | Product: Sauce Labs Backpack | Product should be removed and cart badge should decrease or disappear | Product was removed from cart and cart badge disappeared. | Pass | manual-testing/screenshots/cart-checkout/tc-cart-004-remove-from-products-page.png |
+| TC-CART-005 | Verify cart page displays selected product | Product has been added to cart | 1. Click cart icon | Product: Sauce Labs Backpack | Cart page should display the selected product | Cart page displayed the selected product correctly. | Pass | manual-testing/screenshots/cart-checkout/tc-cart-005-cart-page-product.png |
+| TC-CART-006 | Verify removing product from Cart page | User is on Cart page with one product | 1. Click Remove button in the Cart page | Product: Sauce Labs Backpack | Product should be removed from the cart | Product was removed from the Cart page successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-cart-006-remove-from-cart-page.png |
+| TC-CART-007 | Verify Continue Shopping button | User is on Cart page | 1. Click Continue Shopping button | N/A | User should be redirected back to the Products page | User was redirected back to the Products page successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-cart-007-continue-shopping.png |
+
+---
+
+## Checkout Test Cases
+
+| Test Case ID | Test Scenario | Preconditions | Test Steps | Test Data | Expected Result | Actual Result | Status | Evidence |
+|---|---|---|---|---|---|---|---|---|
+| TC-CHECKOUT-001 | Verify Checkout button opens checkout form | User has at least one product in cart | 1. Open cart page 2. Click Checkout | Product: Sauce Labs Backpack | Checkout information form should be displayed | Checkout information form was displayed. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-001-checkout-form.png |
+| TC-CHECKOUT-002 | Verify checkout with valid customer information | User is on checkout information page | 1. Enter first name 2. Enter last name 3. Enter postal code 4. Click Continue | First Name: Brian Last Name: Nguyen Postal Code: 3000 | User should be redirected to Checkout Overview page | User was redirected to the Checkout Overview page successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-002-valid-info.png |
+| TC-CHECKOUT-003 | Verify checkout with missing first name | User is on checkout information page | 1. Leave first name empty 2. Enter last name 3. Enter postal code 4. Click Continue | Last Name: Nguyen Postal Code: 3000 | Error message should state that first name is required | Error message was displayed indicating that first name is required. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-003-missing-first-name.png |
+| TC-CHECKOUT-004 | Verify checkout with missing last name | User is on checkout information page | 1. Enter first name 2. Leave last name empty 3. Enter postal code 4. Click Continue | First Name: Brian Postal Code: 3000 | Error message should state that last name is required | Error message was displayed indicating that last name is required. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-004-missing-last-name.png |
+| TC-CHECKOUT-005 | Verify checkout with missing postal code | User is on checkout information page | 1. Enter first name 2. Enter last name 3. Leave postal code empty 4. Click Continue | First Name: Brian Last Name: Nguyen | Error message should state that postal code is required | Error message was displayed indicating that postal code is required. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-005-missing-postal-code.png |
+| TC-CHECKOUT-006 | Verify Cancel button on checkout information page | User is on checkout information page | 1. Click Cancel button | N/A | User should be redirected back to the Cart page | User was redirected back to the Cart page successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-006-cancel-button.png |
+| TC-CHECKOUT-007 | Verify checkout overview displays order information | User has entered valid checkout information | 1. Review checkout overview page | Product: Sauce Labs Backpack | Product name, price, payment information, shipping information, tax, and total should be displayed | Checkout overview displayed product, price, payment information, shipping information, tax, and total correctly.
+ | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-007-overview.png |
+| TC-CHECKOUT-008 | Verify complete order | User is on checkout overview page | 1. Click Finish button | N/A | Order confirmation page should be displayed | Order confirmation page was displayed successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-008-complete-order.png |
+| TC-CHECKOUT-009 | Verify Back Home button after order completion | User has completed an order | 1. Click Back Home button | N/A | User should be redirected back to the Products page | User was redirected back to the Products page successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-009-back-home.png |
+
+---
+
+## Test Execution Summary – Product, Cart, and Checkout Modules
+
+| Metric | Result |
+|---|---|
+| Total Test Cases Executed | 19 |
+| Passed | 19 |
+| Failed | TBD |
+| Blocked | TBD |
+| Not Run | TBD |
+
+## Overall Notes
+
+The Product, Cart, and Checkout modules were tested using an end-to-end e-commerce flow.
+
+All planned test cases were executed successfully. The application correctly displayed products, allowed users to add and remove products from the cart, validated checkout form fields, displayed checkout overview information, and completed the order flow successfully.
+
+## Key Learning Outcomes
+
+- Practised testing an end-to-end e-commerce user flow.
+- Verified product browsing, cart management, checkout validation, and order completion.
+- Compared expected results with actual results.
+- Recorded test status and screenshot evidence.
+- Improved understanding of functional testing for shopping cart and checkout workflows.
