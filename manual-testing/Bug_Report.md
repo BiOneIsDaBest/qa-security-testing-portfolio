@@ -41,7 +41,7 @@ Product images appear incorrect or inconsistent with the listed product names.
 
 ### Evidence
 
-`manual-testing/screenshots/bug-report/bug-001-problem-user-product-images.png`
+[Screenshot – Incorrect product images with problem_user](screenshots/bug-report/bug-001-problem-user-product-images.png)
 
 ### Recommendation
 
@@ -51,8 +51,8 @@ Ensure that each product displays the correct image based on its product name an
 
 ## Bug ID: BUG-002
 
-**Title:** Checkout form accepts invalid postal code format  
-**Type:** Validation Issue  
+**Title:** Checkout form does not validate invalid postal code format
+**Type:** Validation Gap / Improvement
 **Module:** Checkout  
 **Environment:** Windows 11, Google Chrome  
 **Test Account:** standard_user / secret_sauce  
@@ -86,8 +86,8 @@ The system allows the user to continue to the Checkout Overview page with an inv
 
 ### Evidence
 
-`manual-testing/screenshots/bug-report/bug-002-0-invalid-postal-code.png`
-`manual-testing/screenshots/bug-report/bug-002-1-invalid-postal-code.png`
+- [Screenshot 1 – Invalid postal code entered](screenshots/bug-report/bug-002-0-invalid-postal-code.png)
+- [Screenshot 2 – Checkout overview displayed after invalid postal code](screenshots/bug-report/bug-002-1-invalid-postal-code.png)
 
 ### Recommendation
 
@@ -104,7 +104,7 @@ Add basic postal code format validation or display a clear validation message wh
 **Test Account:** Invalid login data  
 **Severity:** Low  
 **Priority:** Low  
-**Status:** Open  
+**Status:** Open / Improvement Suggested  
 
 ### Description
 
@@ -128,7 +128,7 @@ The system displays an informal error message style that includes `Epic sadface`
 
 ### Evidence
 
-`manual-testing/screenshots/bug-report/bug-003-login-error-message-style.png`
+[Screenshot – Login error message style](screenshots/bug-report/bug-003-login-error-message-style.png)
 
 ### Recommendation
 
@@ -141,7 +141,7 @@ Use a more professional and user-friendly validation message style, especially f
 | Bug ID | Title | Type | Severity | Priority | Status |
 |---|---|---|---|---|---|
 | BUG-001 | Product images are incorrect when logging in as problem_user | Functional / UI Bug | Medium | Medium | Open |
-| BUG-002 | Checkout form accepts invalid postal code format | Validation Issue | Low | Medium | Open |
+| BUG-002 | Checkout form does not validate invalid postal code format | Validation Gap / Improvement | Low | Medium | Open |
 | BUG-003 | Login error message style may not be professional for users | Usability / Content Issue | Low | Low | Open |
 
 ---
