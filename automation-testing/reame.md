@@ -22,9 +22,12 @@ The purpose of this section is to demonstrate basic end-to-end automation testin
 
 ## Current Test Coverage
 
-| Test ID | Test Scenario | Status |
-|---|---|---|
-| TC-AUTO-LOGIN-001 | Valid login should redirect user to Products page | Automated |
+| Test ID | Test Scenario | Type | Status |
+|---|---|---|---|
+| TC-AUTO-LOGIN-001 | Valid login should redirect user to Products page | Positive | Automated |
+| TC-AUTO-LOGIN-002 | Invalid login should display error message | Negative | Automated |
+| TC-AUTO-CART-001 | User should be able to add product to cart | Functional | Automated |
+| TC-AUTO-CART-002 | User should be able to remove product from cart | Functional | Automated |
 
 ## How to Run Tests
 
