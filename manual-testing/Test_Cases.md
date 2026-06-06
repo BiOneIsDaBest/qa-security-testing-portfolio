@@ -4,7 +4,7 @@
 
 **Application Under Test:** SauceDemo / Swag Labs  
 **Website:** https://www.saucedemo.com/  
-**Module:** Login  
+**Module:** Login, Product, Cart, and Checkout
 **Test Type:** Manual Functional Testing  
 **Tester:** Tung Anh Bao Nguyen  
 **Environment:** Windows 11, Google Chrome  
@@ -14,9 +14,9 @@
 
 ## Test Objective
 
-The objective of this testing activity is to verify that the SauceDemo login functionality works correctly for valid users, invalid users, empty input fields, locked users, and unusual input values.
+The objective of this testing activity is to verify that the core SauceDemo e-commerce user flow works correctly, including login, product browsing, cart management, checkout validation, and order completion.
 
-This login test set is designed to demonstrate basic manual testing skills, including positive testing, negative testing, input validation testing, and basic security awareness.
+This test set is designed to demonstrate basic manual testing skills, including positive testing, negative testing, input validation testing, end-to-end user flow testing, and basic security awareness.
 
 ## Test Case Coverage Summary
 
@@ -108,7 +108,7 @@ These test cases demonstrate end-to-end manual testing skills by covering both p
 
 | Test Case ID | Test Scenario | Preconditions | Test Steps | Test Data | Expected Result | Actual Result | Status | Evidence |
 |---|---|---|---|---|---|---|---|---|
-| TC-PROD-001 | Verify Products page is displayed after valid login | User has valid login credentials | 1. Open SauceDemo 2. Login with valid credentials | Username: standard_user Password: secret_sauce | User should be redirected to the Products page | Actual Result: User was redirected to the Products page successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-prod-001-products-page.png |
+| TC-PROD-001 | Verify Products page is displayed after valid login | User has valid login credentials | 1. Open SauceDemo 2. Login with valid credentials | Username: standard_user Password: secret_sauce | User should be redirected to the Products page | User was redirected to the Products page successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-prod-001-products-page.png |
 | TC-PROD-002 | Verify product list is visible | User is on the Products page | 1. Observe the product list | N/A | Product names, images, prices, and Add to Cart buttons should be visible | Product names, images, prices, and Add to Cart buttons were displayed correctly. | Pass | manual-testing/screenshots/cart-checkout/tc-prod-002-product-list.png |
 | TC-PROD-003 | Verify product details page opens correctly | User is on the Products page | 1. Click a product name | Product: Sauce Labs Backpack | Product details page should be displayed with product name, image, description, price, and Add to Cart button | Product details page was displayed with product name, description, price, image, and Add to Cart button. | Pass | manual-testing/screenshots/cart-checkout/tc-prod-003-product-details.png |
 
