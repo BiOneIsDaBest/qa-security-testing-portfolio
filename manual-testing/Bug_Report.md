@@ -60,8 +60,8 @@ Ensure that each product displays the correct image based on its product name an
 
 ## Bug ID: BUG-002
 
-**Title:** Checkout form does not validate invalid postal code format
-**Type:** Validation Gap / Improvement
+**Title:** Checkout form does not validate invalid postal code format  
+**Type:** Validation Gap / Improvement  
 **Module:** Checkout  
 **Environment:** Windows 11, Google Chrome  
 **Test Account:** standard_user / secret_sauce  
