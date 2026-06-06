@@ -8,7 +8,7 @@
 **Test Type:** Manual Functional Testing  
 **Tester:** Tung Anh Bao Nguyen  
 **Environment:** Windows 11, Google Chrome  
-**Date:** May 2026  
+**Date:** June 2026  
 
 ---
 
@@ -17,6 +17,16 @@
 The objective of this testing activity is to verify that the SauceDemo login functionality works correctly for valid users, invalid users, empty input fields, locked users, and unusual input values.
 
 This login test set is designed to demonstrate basic manual testing skills, including positive testing, negative testing, input validation testing, and basic security awareness.
+
+## Test Case Coverage Summary
+
+| Module | Number of Test Cases |
+|---|---:|
+| Login | 10 |
+| Product | 3 |
+| Cart | 7 |
+| Checkout | 9 |
+| **Total** | **29** |
 
 ---
 
@@ -128,8 +138,7 @@ These test cases demonstrate end-to-end manual testing skills by covering both p
 | TC-CHECKOUT-004 | Verify checkout with missing last name | User is on checkout information page | 1. Enter first name 2. Leave last name empty 3. Enter postal code 4. Click Continue | First Name: Brian Postal Code: 3000 | Error message should state that last name is required | Error message was displayed indicating that last name is required. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-004-missing-last-name.png |
 | TC-CHECKOUT-005 | Verify checkout with missing postal code | User is on checkout information page | 1. Enter first name 2. Enter last name 3. Leave postal code empty 4. Click Continue | First Name: Brian Last Name: Nguyen | Error message should state that postal code is required | Error message was displayed indicating that postal code is required. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-005-missing-postal-code.png |
 | TC-CHECKOUT-006 | Verify Cancel button on checkout information page | User is on checkout information page | 1. Click Cancel button | N/A | User should be redirected back to the Cart page | User was redirected back to the Cart page successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-006-cancel-button.png |
-| TC-CHECKOUT-007 | Verify checkout overview displays order information | User has entered valid checkout information | 1. Review checkout overview page | Product: Sauce Labs Backpack | Product name, price, payment information, shipping information, tax, and total should be displayed | Checkout overview displayed product, price, payment information, shipping information, tax, and total correctly.
- | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-007-overview.png |
+| TC-CHECKOUT-007 | Verify checkout overview displays order information | User has entered valid checkout information | 1. Review checkout overview page | Product: Sauce Labs Backpack | Product name, price, payment information, shipping information, tax, and total should be displayed | Checkout overview displayed product, price, payment information, shipping information, tax, and total correctly. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-007-overview.png |
 | TC-CHECKOUT-008 | Verify complete order | User is on checkout overview page | 1. Click Finish button | N/A | Order confirmation page should be displayed | Order confirmation page was displayed successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-008-complete-order.png |
 | TC-CHECKOUT-009 | Verify Back Home button after order completion | User has completed an order | 1. Click Back Home button | N/A | User should be redirected back to the Products page | User was redirected back to the Products page successfully. | Pass | manual-testing/screenshots/cart-checkout/tc-checkout-009-back-home.png |
 
@@ -141,9 +150,9 @@ These test cases demonstrate end-to-end manual testing skills by covering both p
 |---|---|
 | Total Test Cases Executed | 19 |
 | Passed | 19 |
-| Failed | TBD |
-| Blocked | TBD |
-| Not Run | TBD |
+| Failed | 0 |
+| Blocked | 0 |
+| Not Run | 0 |
 
 ## Overall Notes
 
@@ -158,3 +167,25 @@ All planned test cases were executed successfully. The application correctly dis
 - Compared expected results with actual results.
 - Recorded test status and screenshot evidence.
 - Improved understanding of functional testing for shopping cart and checkout workflows.
+
+---
+
+## Overall Manual Test Case Summary
+
+| Metric | Result |
+|---|---:|
+| Total Test Cases | 29 |
+| Passed | 29 |
+| Failed | 0 |
+| Blocked | 0 |
+| Not Run | 0 |
+
+## Overall Conclusion
+
+A total of 29 manual test cases were created and executed for the SauceDemo web application.
+
+The test cases covered login, product browsing, cart management, checkout validation, checkout overview, and order completion.
+
+All test cases passed during this testing cycle. No blocking issues were found in the tested core user flows.
+
+Any minor issues or improvement observations will be documented separately in `Bug_Report.md`.
