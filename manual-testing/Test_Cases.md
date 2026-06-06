@@ -189,3 +189,9 @@ The test cases covered login, product browsing, cart management, checkout valida
 All test cases passed during this testing cycle. No blocking issues were found in the tested core user flows.
 
 Any minor issues or improvement observations will be documented separately in `Bug_Report.md`.
+
+## Evidence Notes
+
+Screenshot evidence is stored in the `manual-testing/screenshots/` folder.
+
+Each evidence file is named based on the related test case ID to make it easier to trace test execution results.
