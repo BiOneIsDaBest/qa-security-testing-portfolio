@@ -106,19 +106,30 @@ Manual testing was performed on SauceDemo to verify the main user flows.
 
 ## Automation Testing Summary
 
-Playwright automation tests were created using JavaScript.
+Playwright automation tests were created using JavaScript to validate the main user flows of the SauceDemo / Swag Labs web application.
+
+The automation test suite focuses on login, product display, cart actions, checkout validation, and logout.
 
 ### Automated Test Coverage
 
-- Valid login
-- Invalid login
-- Add product to cart
-- Remove product from cart
+| Test ID              | Test Scenario                                          | Test File          | Status    |
+| -------------------- | ------------------------------------------------------ | ------------------ | --------- |
+| TC-AUTO-LOGIN-001    | Valid login should redirect user to Products page      | `login.spec.js`    | Automated |
+| TC-AUTO-LOGIN-002    | Invalid login should display error message             | `login.spec.js`    | Automated |
+| TC-AUTO-LOGIN-003    | User should be able to logout successfully             | `login.spec.js`    | Automated |
+| TC-AUTO-PRODUCT-001  | Product list should be visible after login             | `cart.spec.js`     | Automated |
+| TC-AUTO-CART-001     | User should be able to add product to cart             | `cart.spec.js`     | Automated |
+| TC-AUTO-CART-002     | User should be able to remove product from cart        | `cart.spec.js`     | Automated |
+| TC-AUTO-CHECKOUT-001 | User should be able to checkout with valid information | `checkout.spec.js` | Automated |
+| TC-AUTO-CHECKOUT-002 | Checkout should show error when first name is missing  | `checkout.spec.js` | Automated |
 
 ### Automation Testing Documents
 
-- [Automation Testing README](automation-testing/README.md)
-- [Playwright Tests](automation-testing/tests/)
+* [Automation Testing README](automation-testing/README.md)
+* [Playwright Tests](automation-testing/tests/)
+* [Playwright Config](automation-testing/playwright.config.js)
+
+---
 
 ## How to Run Playwright Tests
 
@@ -126,6 +137,7 @@ Go to the automation testing folder:
 
 ```bash
 cd automation-testing
+```
 
 Install dependencies:
 
@@ -163,49 +175,64 @@ Open HTML report:
 npx playwright show-report
 ```
 
+---
+
 ## Bug Reporting Summary
 
-| Bug ID | Area | Type |
-|---|---|---|
-| BUG-001 | Product List | Functional / UI Bug |
-| BUG-002 | Checkout | Validation Gap / Improvement |
-| BUG-003 | Login | Usability / Content Issue |
+| Bug ID  | Area         | Type                           |
+| ------- | ------------ | ------------------------------ |
+| BUG-001 | Product List | Functional / UI Bug            |
+| BUG-002 | Checkout     | Validation Gap / Improvement   |
+| BUG-003 | Login        | Usability / Content Issue      |
+| BUG-004 | Checkout     | Validation / Edge Case         |
+| BUG-005 | Checkout     | Input Validation / Improvement |
 
 Full report: [Bug Report](manual-testing/Bug_Report.md)
 
+---
+
 ## Current Status
 
-| Area | Status |
-|---|---|
-| GitHub Repo Structure | Completed |
-| Manual Test Cases | Completed |
-| Bug Reports | Completed |
-| Test Plan | Completed |
-| Test Summary Report | Completed |
-| Playwright Setup | Completed |
-| Basic Playwright Tests | Completed |
-| API Testing | Planned |
-| Security Testing Notes | Planned |
+| Area                        | Status              |
+| --------------------------- | ------------------- |
+| GitHub Repo Structure       | Completed           |
+| Manual Test Cases           | Completed           |
+| Bug Reports                 | Completed           |
+| Test Plan                   | Completed           |
+| Test Summary Report         | Completed           |
+| Playwright Setup            | Completed           |
+| Playwright Automation Tests | Completed - 8 tests |
+| Playwright HTML Report      | Completed           |
+| GitHub Actions CI           | Completed           |
+| API Testing                 | Planned             |
+| Security Testing Notes      | Planned             |
+
+---
 
 ## Learning Outcomes
 
 Through this portfolio, I practised:
 
-- Writing structured manual test cases.
-- Executing test cases on a real demo web application.
-- Comparing expected results with actual results.
-- Recording screenshot evidence.
-- Writing professional bug reports.
-- Assigning severity and priority.
-- Setting up Playwright automation testing.
-- Writing JavaScript-based end-to-end tests.
-- Running Playwright tests locally and reviewing HTML reports.
+* Writing structured manual test cases.
+* Executing test cases on a real demo web application.
+* Comparing expected results with actual results.
+* Recording screenshot evidence.
+* Writing professional bug reports.
+* Assigning severity and priority.
+* Setting up Playwright automation testing.
+* Writing JavaScript-based end-to-end tests.
+* Organising automation tests by feature/module.
+* Creating positive and negative automation test cases.
+* Running Playwright tests locally and reviewing HTML reports.
+* Preparing a QA portfolio structure suitable for internship applications.
+
+---
 
 ## Next Steps
 
-- Add API testing with Postman.
-- Add API test cases and API bug reports.
-- Add basic OWASP Top 10 notes.
-- Add a short security testing report.
-- Improve Playwright test structure.
-- Add checkout automation tests.
+* Add API testing with Postman.
+* Add API test cases and API bug reports.
+* Add basic OWASP Top 10 notes.
+* Add a short security testing report.
+* Add screenshots of Playwright HTML report if needed.
+* Continue improving the portfolio for QA / Automation Testing internship applications.
