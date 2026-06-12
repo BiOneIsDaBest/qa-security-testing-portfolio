@@ -222,6 +222,7 @@ Through this automation testing section, I practiced:
 This project focuses on clean and stable intern-level automation testing. The goal is not to build a complex framework, but to demonstrate practical QA automation skills that can be understood by recruiters, mentors, and technical reviewers.
 
 The Playwright HTML report is used as a simple and practical reporting solution for this internship portfolio. Allure Report may be explored later as a nice-to-have reporting tool.
+For more details, see [Test Reporting Notes](Test_Reporting_Notes.md).
 
 ---
 
