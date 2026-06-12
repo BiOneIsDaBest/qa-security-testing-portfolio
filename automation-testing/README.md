@@ -80,6 +80,12 @@ Run all Playwright tests:
 npx playwright test
 ```
 
+Run all tests and generate a Playwright HTML report:
+
+```powershell
+npx playwright test --reporter=list,html
+```
+
 Run a specific test file:
 
 ```powershell
@@ -102,9 +108,9 @@ npx playwright test --debug
 
 ---
 
-## How to View Test Report
+## How to View Playwright HTML Report
 
-After running the tests, open the Playwright HTML report:
+After running the tests with the HTML reporter, open the Playwright HTML report:
 
 ```powershell
 npx playwright show-report
@@ -114,21 +120,81 @@ The report shows:
 
 * Passed and failed tests
 * Test execution time
-* Test steps
-* Screenshots and traces when available
-* Error details if a test fails
+* Test details for each scenario
+* Browser/project used for the test run
+* Screenshots, traces, and error details when available
+
+---
+
+## GitHub Actions CI
+
+This project uses GitHub Actions to automatically run Playwright UI tests when code is pushed to the `main` branch or when a pull request is created.
+
+The workflow file is located at:
+
+```text
+.github/workflows/playwright.yml
+```
+
+The CI workflow performs the following steps:
+
+1. Checkout repository
+2. Setup Node.js
+3. Install project dependencies
+4. Install Playwright browsers
+5. Run Playwright tests
+6. Upload the Playwright HTML report as an artifact
+
+CI workflow summary:
+
+```text
+Push code → GitHub Actions runs → Playwright tests execute → HTML report is generated → Report is uploaded as an artifact
+```
+
+---
+
+## Playwright HTML Report Artifact
+
+The GitHub Actions workflow uploads the Playwright HTML report after each test run.
+
+Artifact name:
+
+```text
+playwright-html-report
+```
+
+To view the report from GitHub Actions:
+
+1. Go to the GitHub repository
+2. Open the **Actions** tab
+3. Select the latest **Playwright Tests** workflow run
+4. Scroll to the **Artifacts** section
+5. Download `playwright-html-report`
+6. Extract the ZIP file
+7. Open `index.html` in a browser
+
+This report is useful for reviewing automated test execution results, including passed tests, failed tests, test duration, and failure evidence.
 
 ---
 
 ## Current Status
 
-The automation suite currently includes 8 Playwright tests covering login, product listing, cart actions, checkout, form validation, and logout.
+The automation suite currently includes 8 automated test scenarios covering login, product listing, cart actions, checkout, form validation, and logout.
 
-Current local test status:
+Current CI status:
 
 ```text
-8 passed
+Playwright tests are passing in GitHub Actions.
+Playwright HTML report is uploaded as the playwright-html-report artifact.
 ```
+
+Current local test result:
+
+```text
+24 passed
+```
+
+Note: The number of test executions may be higher than the number of test scenarios when Playwright runs tests across multiple configured browsers or projects.
 
 ---
 
@@ -143,7 +209,10 @@ Through this automation testing section, I practiced:
 * Performing user actions with `click` and `fill`
 * Verifying UI results with `toBeVisible`, `toHaveText`, and `toHaveURL`
 * Creating positive and negative automation test cases
+* Running automated tests locally
+* Running automated tests in GitHub Actions CI
 * Reading Playwright HTML reports
+* Downloading and reviewing CI report artifacts
 * Organising test files by feature/module
 
 ---
@@ -152,11 +221,14 @@ Through this automation testing section, I practiced:
 
 This project focuses on clean and stable intern-level automation testing. The goal is not to build a complex framework, but to demonstrate practical QA automation skills that can be understood by recruiters, mentors, and technical reviewers.
 
+The Playwright HTML report is used as a simple and practical reporting solution for this internship portfolio. Allure Report may be explored later as a nice-to-have reporting tool.
+
 ---
 
 ## Next Steps
 
-* Add GitHub Actions CI summary to the root README
-* Add screenshots of the Playwright HTML report
+* Improve test stability for CI if any flaky test appears
 * Refactor repeated login steps into a reusable helper file
 * Add more negative test cases for checkout form validation
+* Add basic Allure Report notes for interview preparation
+* Add GitHub Actions CI summary to the root README
