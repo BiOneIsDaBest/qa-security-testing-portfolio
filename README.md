@@ -4,42 +4,54 @@ This portfolio demonstrates my practical learning in manual testing, automation 
 
 It was created to support my internship applications for IT Intern, QA Intern, Manual Tester Intern, Automation Testing Intern, Security Testing Intern, and Application Testing Intern roles.
 
+---
+
 ## About Me
 
 B.IT, Major: Cyber Security
 
-Current focus is building practical skills in QA, automation testing, API testing, and basic web security testing. This portfolio demonstrates my ability to write test documentation, design test cases, report bugs, automate test scenarios, and understand basic OWASP security risks.
+Current focus is building practical skills in QA, automation testing, API testing, and basic web security testing. This portfolio demonstrates my ability to write test documentation, design test cases, report bugs, automate test scenarios, work with test reports, run tests in CI, and understand basic OWASP security risks.
+
+---
 
 ## Focus Areas
 
-- Manual Testing
-- Test Case Design
-- Bug Reporting
-- Playwright Automation Testing
-- API Testing with Postman
-- GitHub Actions CI
-- Basic OWASP Top 10
-- Security Testing Awareness
+* Manual Testing
+* Test Case Design
+* Bug Reporting
+* Playwright Automation Testing
+* API Testing with Postman
+* GitHub Actions CI
+* Playwright HTML Report
+* Basic OWASP Top 10
+* Security Testing Awareness
+
+---
 
 ## Tools and Technologies
 
-- Git & GitHub
-- Markdown
-- JavaScript
-- Node.js
-- Playwright
-- Postman
-- GitHub Actions
-- Chrome DevTools
-- OWASP Top 10 basics
+* Git & GitHub
+* Markdown
+* JavaScript
+* Node.js
+* Playwright
+* Playwright HTML Report
+* Postman
+* GitHub Actions
+* Chrome DevTools
+* OWASP Top 10 basics
+
+---
 
 ## Application Under Test
 
-**Application:** SauceDemo / Swag Labs  
-**Website:** https://www.saucedemo.com/  
-**Type:** Demo e-commerce web application  
+**Application:** SauceDemo / Swag Labs
+**Website:** https://www.saucedemo.com/
+**Type:** Demo e-commerce web application
 
-SauceDemo was used to practise manual testing, bug reporting, and Playwright automation testing.
+SauceDemo was used to practise manual testing, bug reporting, Playwright automation testing, and basic UI regression testing.
+
+---
 
 ## Portfolio Structure
 
@@ -76,39 +88,51 @@ qa-security-testing-portfolio/
         └── playwright.yml
 ```
 
+---
+
 ## Manual Testing Summary
 
 Manual testing was performed on SauceDemo to verify the main user flows.
 
 ### Covered Modules
 
-- Login
-- Logout
-- Product List
-- Product Details
-- Cart
-- Checkout Form
-- Checkout Overview
-- Order Completion
+* Login
+* Logout
+* Product List
+* Product Details
+* Cart
+* Checkout Form
+* Checkout Overview
+* Order Completion
 
 ### Manual Testing Documents
 
-- [Test Plan](manual-testing/Test_Plan.md)
-- [Test Cases](manual-testing/Test_Cases.md)
-- [Bug Report](manual-testing/Bug_Report.md)
-- [Test Summary Report](manual-testing/Test_Summary_Report.md)
+* [Test Plan](manual-testing/Test_Plan.md)
+* [Test Cases](manual-testing/Test_Cases.md)
+* [Bug Report](manual-testing/Bug_Report.md)
+* [Test Summary Report](manual-testing/Test_Summary_Report.md)
 
 ### Manual Testing Highlights
 
-- Designed and executed 29 manual test cases.
-- Recorded expected results, actual results, test status, and screenshot evidence.
-- Created bug reports with severity, priority, reproduction steps, evidence, and recommendations.
+* Designed and executed 29 manual test cases.
+* Recorded expected results, actual results, test status, and screenshot evidence.
+* Created bug reports with severity, priority, reproduction steps, evidence, and recommendations.
+
+---
 
 ## Automation Testing Summary
 
 Playwright automation tests were created using JavaScript to validate the main user flows of the SauceDemo / Swag Labs web application.
 
-The automation test suite focuses on login, product display, cart actions, checkout validation, and logout.
+The automation test suite focuses on:
+
+* Login
+* Product display
+* Cart actions
+* Checkout validation
+* Logout
+
+The Playwright tests are integrated with GitHub Actions CI. When code is pushed to the `main` branch, GitHub Actions automatically runs the UI tests and uploads the Playwright HTML report as an artifact.
 
 ### Automated Test Coverage
 
@@ -128,6 +152,56 @@ The automation test suite focuses on login, product display, cart actions, check
 * [Automation Testing README](automation-testing/README.md)
 * [Playwright Tests](automation-testing/tests/)
 * [Playwright Config](automation-testing/playwright.config.js)
+* [GitHub Actions Workflow](.github/workflows/playwright.yml)
+
+---
+
+## GitHub Actions CI & Test Report
+
+This project uses GitHub Actions to automatically run Playwright UI tests when code is pushed to the `main` branch or when a pull request is created.
+
+The CI workflow file is located at:
+
+```text
+.github/workflows/playwright.yml
+```
+
+The workflow performs the following steps:
+
+1. Checkout repository
+2. Setup Node.js
+3. Install project dependencies
+4. Install Playwright browsers
+5. Run Playwright tests
+6. Upload the Playwright HTML report as an artifact
+
+CI workflow summary:
+
+```text
+Push code → GitHub Actions runs → Playwright tests execute → HTML report is generated → Report is uploaded as an artifact
+```
+
+### Playwright HTML Report Artifact
+
+The GitHub Actions workflow uploads the Playwright HTML report after each test run.
+
+Artifact name:
+
+```text
+playwright-html-report
+```
+
+To view the report from GitHub Actions:
+
+1. Go to the GitHub repository
+2. Open the **Actions** tab
+3. Select the latest **Playwright Tests** workflow run
+4. Scroll to the **Artifacts** section
+5. Download `playwright-html-report`
+6. Extract the ZIP file
+7. Open `index.html` in a browser
+
+This report helps review automated test execution results, including passed tests, failed tests, test duration, and failure evidence.
 
 ---
 
@@ -157,6 +231,18 @@ Run all tests:
 npx playwright test
 ```
 
+Run tests and generate a Playwright HTML report:
+
+```bash
+npx playwright test --reporter=list,html
+```
+
+Open the HTML report locally:
+
+```bash
+npx playwright show-report
+```
+
 Run tests on Chromium only:
 
 ```bash
@@ -167,12 +253,6 @@ Run tests in headed mode:
 
 ```bash
 npx playwright test --headed --project=chromium
-```
-
-Open HTML report:
-
-```bash
-npx playwright show-report
 ```
 
 ---
@@ -193,19 +273,27 @@ Full report: [Bug Report](manual-testing/Bug_Report.md)
 
 ## Current Status
 
-| Area                        | Status              |
-| --------------------------- | ------------------- |
-| GitHub Repo Structure       | Completed           |
-| Manual Test Cases           | Completed           |
-| Bug Reports                 | Completed           |
-| Test Plan                   | Completed           |
-| Test Summary Report         | Completed           |
-| Playwright Setup            | Completed           |
-| Playwright Automation Tests | Completed - 8 tests |
-| Playwright HTML Report      | Completed           |
-| GitHub Actions CI           | Completed           |
-| API Testing                 | Planned             |
-| Security Testing Notes      | Planned             |
+| Area                        | Status                       |
+| --------------------------- | ---------------------------- |
+| GitHub Repo Structure       | Completed                    |
+| Manual Test Cases           | Completed                    |
+| Bug Reports                 | Completed                    |
+| Test Plan                   | Completed                    |
+| Test Summary Report         | Completed                    |
+| Playwright Setup            | Completed                    |
+| Playwright Automation Tests | Completed - 8 test scenarios |
+| Playwright HTML Report      | Completed                    |
+| GitHub Actions CI           | Completed                    |
+| CI Report Artifact          | Completed                    |
+| API Testing                 | Planned                      |
+| Security Testing Notes      | Planned                      |
+
+Current automation status:
+
+```text
+Playwright tests are passing locally and in GitHub Actions CI.
+Playwright HTML report is uploaded as the playwright-html-report artifact.
+```
 
 ---
 
@@ -224,6 +312,9 @@ Through this portfolio, I practised:
 * Organising automation tests by feature/module.
 * Creating positive and negative automation test cases.
 * Running Playwright tests locally and reviewing HTML reports.
+* Integrating Playwright tests with GitHub Actions CI.
+* Reviewing GitHub Actions workflow logs.
+* Downloading and reviewing Playwright HTML report artifacts.
 * Preparing a QA portfolio structure suitable for internship applications.
 
 ---
@@ -234,5 +325,5 @@ Through this portfolio, I practised:
 * Add API test cases and API bug reports.
 * Add basic OWASP Top 10 notes.
 * Add a short security testing report.
-* Add screenshots of Playwright HTML report if needed.
+* Add basic Allure Report notes for interview preparation.
 * Continue improving the portfolio for QA / Automation Testing internship applications.
