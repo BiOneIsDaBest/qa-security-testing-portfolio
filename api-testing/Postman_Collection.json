@@ -1,0 +1,616 @@
+{
+  "info": {
+    "_postman_id": "a513fc6b-438e-454c-970b-aacecd3927e2",
+    "name": "QA Portfolio - ReqRes API Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55883954",
+    "_collection_link": "https://go.postman.co/collection/55883954-a513fc6b-438e-454c-970b-aacecd3927e2?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "01 - GET Requests",
+      "item": [
+        {
+          "name": "API-TC-001 - Get User List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response body contains pagination fields\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData).to.have.property(\"page\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"per_page\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"total\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"total_pages\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Data field is an array\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+                  "}); "
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users?page=2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API-TC-002 - Get Single User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response contains user data object\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "    pm.expect(jsonData.data).to.have.property(\"id\");\r",
+                  "    pm.expect(jsonData.data).to.have.property(\"email\");\r",
+                  "    pm.expect(jsonData.data).to.have.property(\"first_name\");\r",
+                  "    pm.expect(jsonData.data).to.have.property(\"last_name\");\r",
+                  "    pm.expect(jsonData.data).to.have.property(\"avatar\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"User ID is 2\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.data.id).to.eql(2);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users/2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API-TC-003 - Get Non-existing User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response body does not contain valid user data\", function () {\r",
+                  "    const responseText = pm.response.text();\r",
+                  "\r",
+                  "    pm.expect(responseText).to.not.include(\"email\");\r",
+                  "    pm.expect(responseText).to.not.include(\"first_name\");\r",
+                  "    pm.expect(responseText).to.not.include(\"last_name\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users/999",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "999"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "02 - POST Requests",
+      "item": [
+        {
+          "name": "API-TC-004 - Create User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response contains created user fields\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData).to.have.property(\"name\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"job\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"id\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"createdAt\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Created user name and job match request body\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.name).to.eql(\"Brian\");\r",
+                  "    pm.expect(jsonData.job).to.eql(\"QA Intern\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Brian\",\r\n  \"job\": \"QA Intern\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "03 - PUT Requests",
+      "item": [
+        {
+          "name": "API-TC-005 - Update User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response contains updated user fields\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData).to.have.property(\"name\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"job\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"updatedAt\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Updated user data matches request body\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.name).to.eql(\"Brian Updated\");\r",
+                  "    pm.expect(jsonData.job).to.eql(\"Automation Testing Intern\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Brian Updated\",\r\n  \"job\": \"Automation Testing Intern\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/users/2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "04 - DELETE Requests",
+      "item": [
+        {
+          "name": "API-TC-006 - Delete User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {\r",
+                  "    pm.response.to.have.status(204);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response body is empty\", function () {\r",
+                  "    pm.expect(pm.response.text()).to.eql(\"\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users/2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "05 - Negative Tests",
+      "item": [
+        {
+          "name": "API-TC-007 - Create User Missing Job Field",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201 based on observed API behavior\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response contains created user fields even with missing job field\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData).to.have.property(\"name\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"id\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"createdAt\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Job field is not returned when missing in request body\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData).to.not.have.property(\"job\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Brian\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API-TC-008 - Invalid Endpoint",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Invalid endpoint should return 404 Not Found\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/invalid-endpoint",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "invalid-endpoint"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "06 - Validation Tests",
+      "item": [
+        {
+          "name": "API-TC-009 - Status code validation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is exactly 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users?page=2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "API-TC-010 - Response body validation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response body has correct user list structure\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData).to.have.property(\"page\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"per_page\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"total\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"total_pages\");\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Each user object contains required fields\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    jsonData.data.forEach(function (user) {\r",
+                  "        pm.expect(user).to.have.property(\"id\");\r",
+                  "        pm.expect(user).to.have.property(\"email\");\r",
+                  "        pm.expect(user).to.have.property(\"first_name\");\r",
+                  "        pm.expect(user).to.have.property(\"last_name\");\r",
+                  "        pm.expect(user).to.have.property(\"avatar\");\r",
+                  "    });\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{api_key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users?page=2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
