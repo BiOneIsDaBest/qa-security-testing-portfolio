@@ -1,4 +1,4 @@
-# API test Cases
+# API Test Cases
 
 ## Project Information
 
