@@ -257,6 +257,62 @@ npx playwright test --headed --project=chromium
 
 ---
 
+## API Testing Summary
+
+API testing was performed using Postman and ReqRes API to practise common REST API testing scenarios.
+
+The API testing module focuses on:
+
+* GET requests
+* POST requests
+* PUT requests
+* DELETE requests
+* Status code validation
+* JSON response body validation
+* Header validation using `x-api-key`
+* Positive API test cases
+* Negative API test cases
+* Basic Postman assertion testing
+
+### API Test Coverage
+
+| Area             | Coverage                                          |
+| ---------------- | ------------------------------------------------- |
+| GET request      | User list, single user, non-existing user         |
+| POST request     | Create user                                       |
+| PUT request      | Update user                                       |
+| DELETE request   | Delete user                                       |
+| Negative testing | Missing field, invalid endpoint                   |
+| Validation       | Status code and response body validation          |
+| Evidence         | Screenshots stored in `api-testing/screenshots/`  |
+| Collection       | Exported as `api-testing/Postman_Collection.json` |
+| Bug report       | Documented in `api-testing/API_Bug_Report.md`     |
+
+### API Test Execution Summary
+
+| Total Test Cases | Passed | Failed | Notes                                                         |
+| ---------------- | ------ | ------ | ------------------------------------------------------------- |
+| 10               | 9      | 1      | One failed case was documented as an API error handling issue |
+
+### Key Finding
+
+During negative testing, the invalid endpoint test case returned `200 OK` instead of the expected `404 Not Found`.
+
+This issue was documented in:
+
+```text
+api-testing/API_Bug_Report.md
+```
+
+### API Testing Documents
+
+* [API Test Cases](api-testing/API_Test_Cases.md)
+* [Postman Collection](api-testing/Postman_Collection.json)
+* [API Bug Report](api-testing/API_Bug_Report.md)
+* [API Testing Screenshots](api-testing/screenshots/)
+
+---
+
 ## Bug Reporting Summary
 
 | Bug ID  | Area         | Type                           |
@@ -285,7 +341,9 @@ Full report: [Bug Report](manual-testing/Bug_Report.md)
 | Playwright HTML Report      | Completed                    |
 | GitHub Actions CI           | Completed                    |
 | CI Report Artifact          | Completed                    |
-| API Testing                 | Planned                      |
+| API Testing                 | Completed - 10 test cases    |
+| Postman Collection          | Completed                    |
+| API Bug Report              | Completed                    |
 | Security Testing Notes      | Planned                      |
 
 Current automation status:
@@ -316,13 +374,17 @@ Through this portfolio, I practised:
 * Reviewing GitHub Actions workflow logs.
 * Downloading and reviewing Playwright HTML report artifacts.
 * Preparing a QA portfolio structure suitable for internship applications.
+* Designing API test cases for REST API endpoints.
+* Executing GET, POST, PUT, and DELETE requests in Postman.
+* Validating API status codes and JSON response bodies.
+* Using Postman environment variables for `base_url` and `api_key`.
+* Exporting a reusable Postman collection for GitHub portfolio review.
+* Documenting API bugs and unexpected API behaviour.
 
 ---
 
 ## Next Steps
 
-* Add API testing with Postman.
-* Add API test cases and API bug reports.
 * Add basic OWASP Top 10 notes.
 * Add a short security testing report.
 * Add basic Allure Report notes for interview preparation.
