@@ -327,6 +327,45 @@ Full report: [Bug Report](manual-testing/Bug_Report.md)
 
 ---
 
+## QA Tools Awareness
+
+This portfolio also includes basic QA tools awareness notes to demonstrate understanding of real software testing workflows used in QA teams.
+
+### Covered Tools
+
+| Tool | Purpose | Portfolio Connection  |
+| ---- | ------- | --------------------- |
+| Jira | Bug tracking, sprint workflow, issue status, assignee, priority | Bug reports are documented in `manual-testing/Bug_Report.md` using Jira-style fields such as severity, priority, status, steps to reproduce, expected result, actual result, and evidence. |
+| TestRail | Test case management, test suites, test runs, test results | Manual test cases and execution results are documented in `manual-testing/Test_Cases.md` and `manual-testing/Test_Summary_Report.md`. |
+| Allure Report | Automation test reporting, failed test analysis, screenshots/logs, test history | Allure is included as an awareness topic. The implemented automation report in this portfolio is Playwright HTML Report, generated locally and through GitHub Actions. |
+
+### Why This Section Matters
+
+QA interns are often expected to understand how manual testing, automation testing, bug tracking, and test reporting connect in a real project.
+
+This portfolio demonstrates those concepts through:
+
+* Manual test cases
+* Bug reports with evidence
+* Playwright automation tests
+* Playwright HTML Report
+* GitHub Actions CI workflow
+* API testing with Postman
+* Basic security testing awareness
+* QA tools awareness notes
+
+### Related File
+
+See:
+
+```text
+career-prep/QA_Tools_Notes.md
+```
+
+This file explains my basic understanding of Jira, TestRail, and Allure Report, and maps those concepts to my own testing portfolio.
+
+---
+
 ## Current Status
 
 | Area                        | Status                       |
