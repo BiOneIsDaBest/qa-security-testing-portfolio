@@ -25,6 +25,8 @@ Current focus is building practical skills in QA, automation testing, API testin
 * Playwright HTML Report
 * Basic OWASP Top 10
 * Security Testing Awareness
+* QA Tools Awareness: Jira, TestRail, Allure Report
+* AI Testing Awareness
 
 ---
 
@@ -40,6 +42,10 @@ Current focus is building practical skills in QA, automation testing, API testin
 * GitHub Actions
 * Chrome DevTools
 * OWASP Top 10 basics
+* Jira basics
+* TestRail basics
+* Allure Report basics
+* AI-assisted QA awareness
 
 ---
 
@@ -413,6 +419,30 @@ This file explains my basic understanding of Jira, TestRail, and Allure Report, 
 
 ---
 
+## AI Testing Awareness
+
+This portfolio includes AI testing awareness notes to demonstrate understanding of how AI can support software testing workflows.
+
+The goal is not to claim professional AI testing experience.
+The goal is to understand how AI can assist QA activities while still requiring human review, test execution, evidence checking, and final validation.
+
+### Covered Areas
+
+| Area                             | Summary                                                                                               |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| AI-assisted test case generation | AI can suggest positive, negative, and edge-case scenarios from requirements or bug reports.          |
+| AI-assisted test data generation | AI can suggest test data for login, checkout, API testing, and security-aware testing.                |
+| AI-assisted bug reporting        | AI can help structure rough bug notes into clearer reports, but evidence must come from real testing. |
+| AI-assisted automation testing   | AI can help draft or explain Playwright tests, but tests must be reviewed and executed by the tester. |
+| AI-powered application testing   | QA may need to check AI output quality, hallucination, bias, privacy, safety, and prompt behaviour.   |
+| Human-in-the-loop QA             | AI can support testing work, but QA remains responsible for accuracy, coverage, and evidence.         |
+
+### Related File
+
+* [AI Testing Awareness Notes](career-prep/AI_Testing_Awareness.md)
+
+---
+
 ## Current Status
 
 | Area                        | Status                       |
@@ -434,6 +464,7 @@ This file explains my basic understanding of Jira, TestRail, and Allure Report, 
 | OWASP Top 10 Notes          | Completed                    |
 | Security Testing Report     | Completed - 3 findings       |
 | QA Tools Awareness          | Completed                    |
+| AI Testing Awareness        | Completed                    |
 
 Current automation status:
 
@@ -474,6 +505,9 @@ Through this portfolio, I practised:
 * Writing a basic security testing report with findings, risk, impact, evidence, and recommendation.
 * Understanding Jira, TestRail, and Allure Report at an awareness level.
 * Connecting QA documentation, automation reports, CI evidence, API testing, and security awareness into one portfolio.
+* Understanding how AI can support QA workflows such as test case generation, test data generation, bug reporting, and automation testing.
+* Understanding the limitations of AI in testing, including hallucination, incorrect expected results, privacy risks, and lack of business context.
+* Practising a human-in-the-loop QA mindset where AI assists testing work but human testers still review, execute, verify, and document evidence.
 
 ---
 
