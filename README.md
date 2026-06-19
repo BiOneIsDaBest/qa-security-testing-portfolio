@@ -68,9 +68,14 @@ qa-security-testing-portfolio/
 │   └── screenshots/
 │
 ├── security-testing/
+│   ├── OWASP_Top_10_Notes.md
 │   ├── Security_Testing_Report.md
 │   ├── OWASP_Findings.md
 │   └── screenshots/
+│
+├── career-prep/
+│   ├── QA_Tools_Notes.md
+│   └── AI_Testing_Awareness.md
 │
 ├── api-testing/
 │   ├── API_Test_Cases.md
@@ -312,6 +317,48 @@ api-testing/API_Bug_Report.md
 * [API Testing Screenshots](api-testing/screenshots/)
 
 ---
+## Security Testing Summary
+
+This portfolio includes a basic security-aware testing section to demonstrate how functional QA testing can be extended with security awareness.
+
+The goal is not to perform deep penetration testing.
+The goal is to identify simple security-related observations from a QA perspective, especially around input validation, authentication flow, authorization/business logic, and OWASP Top 10 awareness.
+
+### Security Testing Scope
+
+| Area | What Was Checked | Portfolio Evidence  |
+| ---- | ---------------- | ------------------- |
+| Input Validation | Checked whether checkout fields accept invalid or very long input values | `security-testing/Security_Testing_Report.md` |
+| Business Logic | Checked whether users can proceed through invalid checkout flow | `security-testing/Security_Testing_Report.md` |
+| OWASP Awareness | Mapped observations to basic OWASP concepts such as Injection/Input Validation and Broken Access Control/Business Logic | `security-testing/OWASP_Top_10_Notes.md` |
+| Evidence | Linked screenshots from manual testing bug reports | `manual-testing/screenshots/bug-report/` |
+
+### Security Findings Summary
+
+| Finding ID | Title                                               | Type                 | Related Area                           | Severity |
+| ---------- | --------------------------------------------------- | -------------------- | -------------------------------------- | -------- |
+| SEC-001    | Invalid postal code format accepted during checkout | Validation Gap       | Input Validation                       | Low      |
+| SEC-002    | Very long checkout input values accepted            | Validation Gap       | Input Validation                       | Low      |
+| SEC-003    | User can proceed to checkout with an empty cart     | Business Logic Issue | Broken Access Control / Business Logic | Medium   |
+
+### Related Files
+
+```text
+security-testing/
+├── OWASP_Top_10_Notes.md
+├── Security_Testing_Report.md
+└── screenshots/
+```
+
+### Key Learning Outcomes
+
+* Practised basic security-aware testing from a QA perspective.
+* Learned how to map functional issues to OWASP-related concepts.
+* Practised writing findings with risk, impact, evidence, and recommendation.
+* Learned to avoid overclaiming observations as critical vulnerabilities.
+* Connected my Cyber Security background with QA and application testing.
+
+---
 
 ## Bug Reporting Summary
 
@@ -320,7 +367,7 @@ api-testing/API_Bug_Report.md
 | BUG-001 | Product List | Functional / UI Bug            |
 | BUG-002 | Checkout     | Validation Gap / Improvement   |
 | BUG-003 | Login        | Usability / Content Issue      |
-| BUG-004 | Checkout     | Validation / Edge Case         |
+| BUG-004 | Checkout     | Functional / Business Logic Issue         |
 | BUG-005 | Checkout     | Input Validation / Improvement |
 
 Full report: [Bug Report](manual-testing/Bug_Report.md)
@@ -383,7 +430,10 @@ This file explains my basic understanding of Jira, TestRail, and Allure Report, 
 | API Testing                 | Completed - 10 test cases    |
 | Postman Collection          | Completed                    |
 | API Bug Report              | Completed                    |
-| Security Testing Notes      | Planned                      |
+| Security Testing Notes      | Completed                    |
+| OWASP Top 10 Notes          | Completed                    |
+| Security Testing Report     | Completed - 3 findings       |
+| QA Tools Awareness          | Completed                    |
 
 Current automation status:
 
@@ -419,12 +469,18 @@ Through this portfolio, I practised:
 * Using Postman environment variables for `base_url` and `api_key`.
 * Exporting a reusable Postman collection for GitHub portfolio review.
 * Documenting API bugs and unexpected API behaviour.
+* Understanding basic OWASP Top 10 concepts from a QA perspective.
+* Mapping input validation and business logic issues to security-aware testing concepts.
+* Writing a basic security testing report with findings, risk, impact, evidence, and recommendation.
+* Understanding Jira, TestRail, and Allure Report at an awareness level.
+* Connecting QA documentation, automation reports, CI evidence, API testing, and security awareness into one portfolio.
 
 ---
 
 ## Next Steps
 
-* Add basic OWASP Top 10 notes.
-* Add a short security testing report.
-* Add basic Allure Report notes for interview preparation.
-* Continue improving the portfolio for QA / Automation Testing internship applications.
+* Add AI Testing Awareness notes.
+* Polish CV, LinkedIn, and cover letter for QA / Automation Testing internship applications.
+* Prepare a 60-second English self-introduction.
+* Practise QA, automation testing, API testing, and basic security testing interview questions.
+* Continue improving the portfolio based on internship job descriptions.
